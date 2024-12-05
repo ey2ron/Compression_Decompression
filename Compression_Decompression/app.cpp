@@ -5,7 +5,7 @@
 wxIMPLEMENT_APP(app);
 
 bool app::OnInit() {
-	mainframe* mainFrame = new mainframe("INTERNATIONAL BANK OF MANIAGO");
+	mainframe* mainFrame = new mainframe("HYDRAULIC PRESS PROGRAM");
 	mainFrame->SetMinClientSize(wxSize(1280, 720));
 	mainFrame->SetMaxClientSize(wxSize(1280, 720));
 	mainFrame->Move(130, 80);
