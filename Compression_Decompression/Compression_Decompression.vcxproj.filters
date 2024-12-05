@@ -18,9 +18,15 @@
     <ClInclude Include="mainframe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mainframe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

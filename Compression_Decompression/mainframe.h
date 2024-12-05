@@ -1,6 +1,10 @@
 #pragma once
 #include <wx/wx.h>
-class mainframe
+class mainframe : public wxFrame
 {
+	public:
+		mainframe(const wxString& title);
+	private:
+
 };
 

@@ -135,9 +135,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="app.h" />
     <ClInclude Include="mainframe.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="app.cpp" />
     <ClCompile Include="mainframe.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
