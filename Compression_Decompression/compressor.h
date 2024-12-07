@@ -43,7 +43,7 @@ public:
     void decompressFile(const wxString& filepath); 
     string decodeText(huffmanNode* root);
     void saveDecompressedFile(const string& fileName, const string& decompressedText);
-    string filterFileName(const string& filePath);
+    
     
 };
 
