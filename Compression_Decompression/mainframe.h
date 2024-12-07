@@ -5,9 +5,12 @@
     #include "wx/listbox.h"
     #include <fstream>
     #include <string>
-
+    #include "compressor.h"
+    #include <wx/filename.h>
+    
     class FileDropTarget : public wxFileDropTarget {
     public:
+        huffmanAlg huff;
         FileDropTarget(wxListBox* listBox, const std::string& operationType)
             : m_listBox(listBox), m_operationType(operationType) {}
 
@@ -35,19 +38,23 @@
 
         void CompressFile(const std::string& filePath) {
             // Placeholder logic for file compression
+            huff.compressFile(filePath);
             wxLogMessage("Compressed: %s", filePath);
+
         }
 
         void DecompressFile(const std::string& filePath) {
-            // Placeholder logic for file decompression
+          
+            huff.decompressFile(filePath);
             wxLogMessage("Decompressed: %s", filePath);
         }
+
     };
 
     class mainframe : public wxFrame {
     public:
         mainframe(const wxString& title);
-
+        huffmanAlg huff;
     private:
         void SPanel();
         void Creatingfile(wxCommandEvent& evt);

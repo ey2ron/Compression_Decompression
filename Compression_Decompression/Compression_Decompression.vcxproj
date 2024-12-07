@@ -144,6 +144,9 @@
     <ClCompile Include="compressor.cpp" />
     <ClCompile Include="mainframe.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Documents\testfile.txt.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
