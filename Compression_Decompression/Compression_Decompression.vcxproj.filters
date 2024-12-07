@@ -37,6 +37,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Documents\testfile.txt.txt" />
+    <Text Include="..\..\..\..\Documents\testfile2 - Copy.txt" />
+    <Text Include="..\..\..\..\Documents\testfile2.txt" />
   </ItemGroup>
 </Project>

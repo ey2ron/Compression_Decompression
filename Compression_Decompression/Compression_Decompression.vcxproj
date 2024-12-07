@@ -145,7 +145,8 @@
     <ClCompile Include="mainframe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Documents\testfile.txt.txt" />
+    <Text Include="..\..\..\..\Documents\testfile2 - Copy.txt" />
+    <Text Include="..\..\..\..\Documents\testfile2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

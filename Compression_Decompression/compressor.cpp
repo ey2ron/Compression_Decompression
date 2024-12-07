@@ -203,7 +203,7 @@ void huffmanAlg::decompressFile(const wxString& filepath) {
     string decompressedText = decodeText(newRoot);
 
     string decompressedFileName = filename.substr(0, filename.find("-Compressed.bin"));
-    saveDecompressedFile(decompressedFileName + ".txt", decompressedText);
+    saveDecompressedFile(decompressedFileName, decompressedText);
 
     remove(compressedFilename.c_str());
     remove(detailsFilename.c_str());
@@ -213,14 +213,31 @@ void huffmanAlg::decompressFile(const wxString& filepath) {
 
 string huffmanAlg::decodeText(huffmanNode* root) {
     string decodedText = "";
+
+    if (root == nullptr) {
+        wxLogError("Error: Huffman tree root is null.");
+        return decodedText;
+    }
+
     huffmanNode* currentNode = root;
 
     for (char bit : encodedText) {
         if (bit == '0') {
+            if (currentNode->left == nullptr) {
+            
+                return decodedText;
+            }
             currentNode = currentNode->left;
         }
-        else {
+        else if (bit == '1') {
+            if (currentNode->right == nullptr) {
+                return decodedText;
+            }
             currentNode = currentNode->right;
+        }
+        else {
+            wxLogError("Error: Invalid bit encountered while decoding.");
+            return decodedText;
         }
 
         if (!currentNode->left && !currentNode->right) {
@@ -231,6 +248,7 @@ string huffmanAlg::decodeText(huffmanNode* root) {
 
     return decodedText;
 }
+
 
 void huffmanAlg::saveDecompressedFile(const string& fileName, const string& decompressedText) {
     ofstream outFile(fileName);
