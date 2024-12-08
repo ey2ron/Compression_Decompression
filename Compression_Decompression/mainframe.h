@@ -56,16 +56,20 @@
         mainframe(const wxString& title);
         huffmanAlg huff;
     private:
-        void SPanel();
+
+        void SPanel(wxCommandEvent& evt);
+        void Fpanel(); 
         void Creatingfile(wxCommandEvent& evt);
         void DoneButtonF(wxCommandEvent& evt);
-
+        void OnButton3Clicked(wxCommandEvent& evt);
+        void returnmain(wxCommandEvent& evt);
+        wxPanel* firstpanel;
         wxPanel* secondpanel;
         wxPanel* creatingtextpanel;
         wxButton* CreateFileButton;
         wxButton* DoneButton;
         wxTextCtrl* textcontents;
-    
+        
         wxListBox* compressBox;
         wxListBox* decompressBox;
 
