@@ -1,6 +1,8 @@
 #include "mainframe.h"
 #include <wx/wx.h>
 
+//buahy pa ako guys
+
 
 wxBEGIN_EVENT_TABLE(mainframe, wxFrame)
 EVT_BUTTON(wxID_ANY, mainframe::Creatingfile)
