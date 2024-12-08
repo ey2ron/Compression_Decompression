@@ -8,6 +8,7 @@
 
 using namespace std;
 
+//Huffman Node Struct
 struct huffmanNode {
     char ch;
     int freq;
@@ -17,12 +18,14 @@ struct huffmanNode {
     huffmanNode(char character, int frequency) : ch(character), freq(frequency), left(nullptr), right(nullptr) {}
 };
 
+//Comparison struct to check frequency
 struct Compare {
     bool operator()(huffmanNode* left, huffmanNode* right) {
         return left->freq > right->freq;
     }
 };
 
+//Huffman Algorithm Class
 class huffmanAlg {
 public:
     string huffmanCodes[256];
@@ -30,6 +33,7 @@ public:
 
     huffmanAlg() {}
 
+    //Create File for Text to be compressed
     void createTextFile() {
         string filename, content;
         cout << "Enter the name of the text file: ";
@@ -48,6 +52,7 @@ public:
         cout << "File saved successfully." << endl;
     }
 
+    //Filereader function
     void fileReader(const string& filename, char characters[], int frequencies[], int& size) {
         ifstream myFile(filename);
         if (!myFile) {
@@ -75,7 +80,9 @@ public:
         myFile.close();
     }
 
+    //Build the Huffman Tree
     huffmanNode* huffmanTree(const char characters[], const int frequencies[], int size) {
+        //Priority Queue built in queue library to use min heap
         priority_queue<huffmanNode*, vector<huffmanNode*>, Compare> minHeap;
 
         for (int i = 0; i < size; ++i) {
@@ -99,6 +106,7 @@ public:
         return minHeap.top();
     }
 
+    //Creation of Huffman code 
     void makeCode(huffmanNode* root, string code) {
         if (!root)
             return;
@@ -111,6 +119,7 @@ public:
         makeCode(root->right, code + "1");
     }
 
+    //Changing the structure of a text file to compress it into a .bin file
     void compressFile() {
         string filename;
         cout << "Enter the name of the text file to compress: ";
@@ -153,6 +162,7 @@ public:
         cout << "File compressed successfully." << endl;
     }
 
+    //Decompressing the .bin file to discover the text
     void decompressFile() {
         string filename;
         cout << "Enter the name of the compressed file (without -Compressed.bin): ";
@@ -286,6 +296,7 @@ public:
     }
 };
 
+//Main
 int main() {
     huffmanAlg huffAlg;
     while (true) {
