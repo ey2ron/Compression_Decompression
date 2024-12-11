@@ -45,11 +45,13 @@ public:
         ofstream outFile(filename + ".txt");
         if (!outFile) {
             cerr << "Error creating file." << endl;
+            system("pause");
             return;
         }
         outFile << content;
         outFile.close();
         cout << "File saved successfully." << endl;
+        system("pause");
     }
 
     //Filereader function
@@ -57,6 +59,7 @@ public:
         ifstream myFile(filename);
         if (!myFile) {
             cerr << "File not found." << endl;
+            system("pause");
             return;
         }
 
@@ -133,6 +136,7 @@ public:
 
         if (size == 0) {
             cerr << "No content in the file to compress." << endl;
+            system("pause");
             return;
         }
 
@@ -160,6 +164,7 @@ public:
         remove((filename + ".txt").c_str());
 
         cout << "File compressed successfully." << endl;
+        system("pause");
     }
 
     //Decompressing the .bin file to discover the text
@@ -174,6 +179,7 @@ public:
         ifstream detailsFile(detailsFilename);
         if (!detailsFile) {
             cerr << "Details file not found." << endl;
+            system("pause");
             return;
         }
 
@@ -231,6 +237,7 @@ public:
         remove(detailsFilename.c_str());
 
         cout << "File decompressed successfully." << endl;
+        system("pause");
     }
 
     string decodeText(huffmanNode* root) {
@@ -314,9 +321,12 @@ int main() {
                 huffAlg.decompressFile();
                 break;
             case 4:
+                cout << "Thank you for using the program!\n";
+                system("pause");
                 return 0;
             default:
                 cout << "Invalid choice. Please try again." << endl;
+                system("pause");
         }
     }
 }
